@@ -1,0 +1,39 @@
+Run =lein test= under the this directory, then you can see following results.
+
+#+begin_src clojure
+λ lein test
+
+lein test example.core-test
+
+lein test :only example.core-test/my-failure-test
+
+FAIL in (my-failure-test) (core_test.clj:6)
+map
+should fail
+ left: {:foo 1}
+right: {:foo 2}
+   in [:foo]
+      left 1
+     right 2
+
+lein test :only example.core-test/my-failure-test
+
+FAIL in (my-failure-test) (core_test.clj:8)
+vector
+should fail
+ left: [1 2 3]
+right: []
+   in [0]
+      left 1
+     right
+   in [1]
+      left 2
+     right
+   in [2]
+      left 3
+     right
+
+Ran 1 tests containing 2 assertions.
+2 failures, 0 errors.
+Tests failed.
+#+end_src

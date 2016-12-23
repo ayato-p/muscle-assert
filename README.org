@@ -11,7 +11,7 @@
    Merge the following with your project.clj or profiles.clj
 
    #+begin_src clojure
-   {:dependencies [[muscle-assert "0.1.0"]]
+   {:dependencies [[ayato_p/muscle-assert "0.1.0"]]
     :injections [(require 'muscle-assert.core)
                  (muscle-assert.core/activate!)]}
    #+end_src
