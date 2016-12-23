@@ -1,0 +1,20 @@
+machine:
+  timezone: Asia/Tokyo
+
+dependencies:
+  override:
+    - lein all deps
+
+test:
+  override:
+    - lein all test
+  post:
+    - lein coverage
+    - bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json
+    - mv target/coverage $CIRCLE_ARTIFACTS/coverage
+
+deployment:
+  development:
+    branch: master
+    commands:
+      - lein deploy snapshots
