@@ -1,6 +1,6 @@
 (defproject ayato_p/muscle-assert "0.1.1-SNAPSHOT"
   :description "MuscleAssert for Clojure"
-  :url "http://example.com/FIXME"
+  :url "https://github.com/ayato-p/muscle-assert"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :java-source-paths ["src-java"]

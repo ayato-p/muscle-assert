@@ -1,13 +1,30 @@
-* muscle-assert
+* :muscle: muscle-assert :muscle: [[https://circleci.com/gh/ayato-p/muscle-assert/tree/master][https://circleci.com/gh/ayato-p/muscle-assert/tree/master.svg?style=svg]] [[https://codecov.io/gh/ayato-p/muscle-assert][https://codecov.io/gh/ayato-p/muscle-assert/branch/master/graph/badge.svg]]
 
-  Muscle Assert for Clojure
-  [[https://circleci.com/gh/ayato-p/muscle-assert/tree/master][https://circleci.com/gh/ayato-p/muscle-assert/tree/master.svg?style=svg]]
-  [[https://codecov.io/gh/ayato-p/muscle-assert][https://codecov.io/gh/ayato-p/muscle-assert/branch/master/graph/badge.svg]]
+  Muscle Assert for Clojure.
 
-** Usage
+  Latest version is
 
   [[https://clojars.org/ayato_p/muscle-assert][https://img.shields.io/clojars/v/ayato_p/muscle-assert.svg]]
 
+** Usage
+
+   Merge the following with your project.clj or profiles.clj
+
+   #+begin_src clojure
+   {:dependencies [[muscle-assert "0.1.0"]]
+    :injections [(require 'muscle-assert.core)
+                 (muscle-assert.core/activate!)]}
+   #+end_src
+
+   Then run your test via =lein test= or compatible test runner.
+
+
+** What is Muscle Assert
+
+*** Japanese articles
+
+    - [[http://pocketberserker.hatenablog.com/entry/2016/06/02/143727][Persimmon用アサーションライブラリMuscleAssertを作った]]
+    - [[http://bleis-tift.hatenablog.com/entry/hello-muscle-assert][続・そろそろPower Assertについてひとこと言っておくか]]
 
 ** License
 
