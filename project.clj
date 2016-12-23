@@ -1,4 +1,4 @@
-(defproject ayato_p/muscle-assert "0.1.0-SNAPSHOT"
+(defproject ayato_p/muscle-assert "0.1.0"
   :description "MuscleAssert for Clojure"
   :url "http://example.com/FIXME"
   :license {:name "The MIT License"
@@ -27,7 +27,7 @@
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
                   ["vcs" "tag" "--no-sign"]
-                  ["deploy"]
+                  ["deploy" "releases"]
                   ["change" "version" "leiningen.release/bump-version"]
                   ["vcs" "commit"]
                   ["vcs" "push"]])
