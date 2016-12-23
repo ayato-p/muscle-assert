@@ -123,4 +123,11 @@
   (let [a (->MyType 1 2 3)
         b (->MyType 1 2 3)]
     (is (= {[] [a b]}
-           (a/analyze a b)))))
+           (a/analyze a b))))
+
+  (let [a (->MyType 1 2 3)
+        b (->MyType 1 2 3)
+        aary (into-array [a])
+        bary (into-array [b])]
+    (is (= {[0] [a b]}
+           (a/analyze aary bary)))))

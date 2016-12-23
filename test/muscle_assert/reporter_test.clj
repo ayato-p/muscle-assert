@@ -183,3 +183,54 @@
              "    is a"
              "   - pen"
              "   +n apple"])))))
+
+(deftest equals-fail-report-test-for-complex-structure
+  (with-fail-msg [fail-msg (is (= {:foo {:bar [1 2 3]}}
+                                  {:foo {:bar [1 2 4]}}))]
+    (is (= fail-msg
+           (join-with-newline
+            [" left: {:foo {:bar [1 2 3]}}"
+             "right: {:foo {:bar [1 2 4]}}"
+             "   in [:foo :bar 2]"
+             "      left 3"
+             "     right 4"]))))
+
+  (with-fail-msg [fail-msg (is (= {:foo 1} {:foo 2} {:foo 3}))]
+    (is (= fail-msg
+           (join-with-newline
+            [" left: {:foo 1}"
+             "right: {:foo 2}"
+             "   in [:foo]"
+             "      left 1"
+             "     right 2"
+             " left: {:foo 1}"
+             "right: {:foo 3}"
+             "   in [:foo]"
+             "      left 1"
+             "     right 3"]))))
+
+  (with-fail-msg [fail-msg (is (= '(:foo :bar) [:foo :bar] {:foo :bar}))]
+    (is (= fail-msg
+           (join-with-newline
+            [" left: (:foo :bar)"
+             "right: {:foo :bar}"])))))
+
+(deftest default-fail-report-test
+  (with-fail-msg [fail-msg (is (nil? 1))]
+    (is (= fail-msg
+           (join-with-newline
+            ["expected: (nil? 1)"
+             "  actual: (not (nil? 1))"]))))
+  (with-fail-msg [fail-msg (is (nil? 1) "should fail")]
+    (is (= fail-msg
+           (join-with-newline
+            ["should fail"
+             "expected: (nil? 1)"
+             "  actual: (not (nil? 1))"]))))
+
+  (with-fail-msg [fail-msg (testing "should fail" (is false))]
+    (is (= fail-msg
+           (join-with-newline
+            ["should fail"
+             "expected: false"
+             "  actual: false"])))))

@@ -22,9 +22,6 @@
   (report-detail [a b]))
 
 (extend-protocol ReportDetail
-  nil
-  (report-detail [a b])
-
   Object
   (report-detail [a b])
 
@@ -40,7 +37,8 @@
 
 (defn- equals-fail-report [m]
   (let [[_ [_ expected & actuals]] (:actual m)]
-    (doseq [actual actuals]
+    (doseq [actual actuals
+            :when (not= actual expected)]
       (println " left:" (pr-str expected))
       (println "right:" (pr-str actual))
       (doseq [[path [a b]] (a/analyze expected actual)]
