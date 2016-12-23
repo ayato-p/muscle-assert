@@ -1,4 +1,4 @@
-(defproject ayato_p/muscle-assert "0.1.0"
+(defproject ayato_p/muscle-assert "0.1.1-SNAPSHOT"
   :description "MuscleAssert for Clojure"
   :url "http://example.com/FIXME"
   :license {:name "The MIT License"
