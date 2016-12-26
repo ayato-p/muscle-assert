@@ -16,7 +16,7 @@
                  (muscle-assert.core/activate!)]}
    #+end_src
 
-   Then run your test via =lein test= or compatible test runner.
+   Then run your tests via =lein test= or any compatible test runner.
 
 
 ** What is Muscle Assert
